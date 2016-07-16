@@ -1,0 +1,54 @@
+<div flex class="login_loginBack login_frame" >
+   <div class="login_logo" ng-show="$mdMedia('max-width: 450px')">
+      <img src="styles/images/beach.png" />
+   </div>
+   <md-card style="max-width:350px;margin:auto;"
+            aria-label="Login" 
+            md-theme="login" md-whiteframe="4">
+      <md-toolbar>
+         <div class="md-toolbar-tools title" flex layout-align="center">
+            <h2>Complejo San Clemente</h2>
+            <!--<span flex></span>-->
+            <!--<md-button class="md-icon-button" ng-click="cancel()">-->
+            <!--  <ng-md-icon icon="assignment" style="fill: black"></ng-md-icon>-->
+            <!--</md-button>-->
+         </div>
+      </md-toolbar>
+      <form name="loginForm">
+         <div layout="row">
+            <ng-md-icon icon="email" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <label>Ingrese correo electronico</label>
+               <input type="email" ng-model="vm.email" name="email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" required>
+               <div ng-messages="loginForm.email.$error" role="alert">
+                  <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                     El campo es obligatorio
+                  </div>
+               </div>
+            </md-input-container>
+         </div>
+         <div layout="row">
+            <ng-md-icon icon="vpn_key" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <label>Ingrese contraseña</label>
+               <input type="password" ng-model="vm.pwd" name="pwd" required>
+               <div ng-messages="loginForm.pwd.$error" role="alert">
+                  <div ng-message-exp="required">
+                     El campo es obligatorio
+                  </div>
+               </div>
+            </md-input-container>
+         </div>
+         <div layout="row" md-whiteframe="4">
+            <span flex> </span>
+         <md-button ng-disabled="loginForm.email.$invalid" ng-click="vm.login()" md-autofocus class="md-raised md-primary"> Ingresar </md-button>
+      </div>
+      </form>
+   </md-card>
+
+   <footer class="footnote form_footer">
+      <h4>Complejo San Clemente</h4>
+      <p> Tel: 02477-15331941</p>
+      <p>complejoSanClemente@gmail.com</p>
+   </footer>
+</div>

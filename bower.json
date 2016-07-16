@@ -1,0 +1,20 @@
+{
+  "name": "backend",
+  "description": "a Sails application",
+  "main": "app.js",
+  "authors": [
+    "ubuntu"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular-ui-router": "ui-route#^0.3.1"
+  }
+}

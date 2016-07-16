@@ -1,0 +1,53 @@
+<md-sidenav class="csc_sidenav md-sidenav-left md-whiteframe-z5" 
+            md-component-id="left" 
+            md-is-locked-open="$mdMedia('gt-xs')">
+   <md-toolbar class="csc_toolbar" layout-align="center center">
+      <h3>C.S.C.</h3>
+   </md-toolbar>  
+   <md-content class="csc_sideContent">
+      <md-list>
+         <md-list-item>
+            <md-button ui-sref="modulos" ng-class="{'selected' : it === vm.selected }">
+               <ng-md-icon icon="now_widgets" class="sidenav_icon"></ng-md-icon>
+               Modulos
+            </md-button>
+         </md-list-item>
+         <md-list-item>
+            <md-button ui-sref="agenda" ng-class="{'selected' : it === vm.selected }">
+               <ng-md-icon icon="date_range" class="sidenav_icon"></ng-md-icon>
+               Agenda
+            </md-button>
+         </md-list-item>
+         <md-list-item>
+            <md-button ui-sref="bitacoras" ng-class="{'selected' : it === vm.selected }">
+               <ng-md-icon icon="my_library_books" class="sidenav_icon"></ng-md-icon>
+               Bitacoras
+            </md-button>
+         </md-list-item>
+         <md-list-item>
+            <md-button ui-sref="dialogos" ng-class="{'selected' : it === vm.selected }">
+               <ng-md-icon icon="chat" class="sidenav_icon"></ng-md-icon>
+               Dialogos
+            </md-button>
+         </md-list-item>
+         <md-list-item>
+            <md-button ui-sref="huespedes" ng-class="{'selected' : it === vm.selected }">
+               <ng-md-icon icon="hotel" class="sidenav_icon"></ng-md-icon>
+               Huespedes
+            </md-button>
+         </md-list-item>
+         <md-list-item>
+            <md-button ui-sref="contactos" ng-class="{'selected' : it === vm.selected }">
+               <ng-md-icon icon="group" class="sidenav_icon"></ng-md-icon>
+               Contactos
+            </md-button>
+         </md-list-item>  
+         <md-list-item>
+            <md-button ng-click="vm.cerrarSesion()" ng-class="{'selected' : it === vm.selected }">
+               <ng-md-icon icon="logout" class="sidenav_icon"></ng-md-icon>
+               Salir
+            </md-button>
+         </md-list-item>          
+      </md-list>
+   </md-content>
+</md-sidenav>

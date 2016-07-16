@@ -1,0 +1,16 @@
+<div layout="row" class="csc_background">
+   <div ng-include="'admin/menu.tpl.html'" layout="vertical"></div>
+
+   <div layout="column" flex id="wrapper">
+      <div ng-include="'admin/toolbar.tpl.html'"></div>
+      
+      <div flex>
+         <div ui-view></div>
+      </div>
+   </div>
+
+   <!--<div class="csc_loading" ng-click="vm.noSpin()" ng-show="flags.spin">-->
+   <!--   <img class="csc_loadingSpinner" src="spinner.gif" />-->
+   <!--</div>-->
+</div>
+

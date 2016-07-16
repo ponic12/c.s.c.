@@ -1,0 +1,175 @@
+<div class="reservation_back" >
+   <md-toolbar class="md-primary">
+      <div class="md-toolbar-tools" layout-align="center center">
+         <h2 class="md-flex">Formulario de reserva</h2>
+      </div>
+   </md-toolbar>
+   <form name="resForm">
+      
+      <md-card name="fechas" layout="column">
+         <div layout="row">
+            <md-datepicker ng-model="vm.fechaDesde" placeholder="Fecha de ingreso" class="datePick" md-min-date="vm.minDate" md-max-date="vm.maxDate"></md-datepicker>
+            <md-datepicker ng-model="vm.fechaHasta" placeholder="Fecha de salida" class="datePick" md-min-date="vm.minDate" md-max-date="vm.maxDate"></md-datepicker>
+         </div>
+         <div layout-padding="20" layout-align="center" class="textnote">
+            La salida es hasta las 10AM y la entrada desde las 11AM
+         </div>
+      </md-card>
+
+      <md-card>
+         <md-toolbar class="md-primary md-whiteframe-2dp">
+            <div class="md-toolbar-tools" layout-align="center center">
+               <h2 class="md-flex">Datos personales</h2>
+            </div>
+         </md-toolbar>
+         
+         <div layout="row">
+            <ng-md-icon icon="email" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <label>Ingrese correo electronico</label>
+               <input type="email" ng-model="vm.resData.email" name="email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" required>
+               <div ng-messages="resForm.email.$error" role="alert">
+                  <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                     El campo es obligatorio
+                  </div>
+               </div>
+            </md-input-container>
+         </div>
+         
+         <div layout="row">
+            <ng-md-icon icon="person" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <label>Nombre</label>
+               <input type="text" ng-model="vm.resData.firstName" name="firstName" required>
+               <div ng-messages="resForm.firstName.$error">
+                  <div ng-message="required">Este dato es obligatorio</div>
+               </div>
+            </md-input-container>
+         </div>   
+
+         <div layout="row">
+            <ng-md-icon icon="person" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <label>Apellido</label>
+               <input type="text" ng-model="vm.resData.lastName" name="lastName" required>
+               <div ng-messages="resForm.lastName.$error">
+                  <div ng-message="required">Este dato es obligatorio</div>
+               </div>
+            </md-input-container>
+         </div>
+         
+         <div layout="row">
+            <ng-md-icon icon="contact_mail" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <label>DNI</label>
+               <input type="number" ng-model="vm.resData.document" name="document" required>
+               <div ng-messages="resForm.document.$error">
+                  <div ng-message="required">Este dato es obligatorio</div>
+               </div>
+            </md-input-container>
+         </div>   
+
+         <div layout="row">
+            <ng-md-icon icon="business" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <label>Direccion</label>
+               <input type="text" ng-model="vm.resData.address" name="address" required>
+               <div ng-messages="resForm.address.$error">
+                  <div ng-message="required">Este dato es obligatorio</div>
+               </div>
+            </md-input-container>
+         </div>   
+         
+         <div layout="row">
+            <ng-md-icon icon="location_on" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <label>Localidad</label>
+               <input type="text" ng-model="vm.resData.local" name="local">
+            </md-input-container>
+         </div>
+         
+         <div layout="row">
+            <ng-md-icon icon="phone" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <label>Telefono</label>
+               <input type="number" ng-model="vm.resData.telephone" name="telephone">
+            </md-input-container>
+         </div>
+         
+         <div layout="row">
+            <ng-md-icon icon="phonelink_ring" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <label>Celular</label>
+               <input type="number" ng-model="vm.resData.mobile" name="mobile" required>
+               <div ng-messages="resForm.mobile.$error">
+                  <div ng-message="required">Este dato es obligatorio</div>
+               </div>
+            </md-input-container>
+         </div>
+
+         <div layout="row">
+            <ng-md-icon icon="child_care" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <label>Cantidad de menores</label>
+               <input type="number" ng-model="vm.resData.children" name="children">
+            </md-input-container>
+         </div>
+         
+         <div layout="row">
+            <ng-md-icon icon="people" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <label>Cantidad de adultos</label>
+               <input type="number" ng-model="vm.resData.adults" name="adults">
+            </md-input-container>
+         </div>
+         
+         <div layout="row">
+            <ng-md-icon icon="directions_car" flex="10" style="fill: gray; margin-top: 20px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <md-checkbox ng-model="vm.resData.vehicle" aria-label="CheckboxVehicle" class="md-warn md-align-top-left" flex>
+                  Posee vehiculo?
+               </md-checkbox>
+            </md-input-container>
+         </div>
+         
+         <div layout="row">
+            <ng-md-icon icon="pets" flex="10" style="fill: gray; margin-top: 0px; margin-left:10px"></ng-md-icon>
+            <md-checkbox name="pet-ok" ng-model="vm.resData.pet" aria-label="CheckboxPet" class="md-warn md-align-top-left" flex>
+               Posee mascota?
+            </md-checkbox>
+         </div>
+         <md-input-container flex="10" class="md-block" ng-show="vm.resData.pet==true">
+            <label>Tamaño</label>
+            <md-select name="size" ng-model="vm.resData.petSize">
+               <md-option value="1">Grande</md-option>
+               <md-option value="2">Mediana</md-option>
+               <md-option value="3">Pequeña</md-option>
+            </md-select>
+         </md-input-container>
+
+         <md-whiteframe layout="column" class="md-whiteframe-2dp textnote" ng-style="background-color: #eee;">
+            <h4>Notas:</h4>
+            <span>Mas de un vehiculo (auto, jet ski, cuatriciclo....) se cobra $100 x dia extra.</span>
+            <span>Debe llevar sabanas y toallas.</span>
+         </md-whiteframe>
+         
+         <md-divider></md-divider>
+         <md-button class="md-primary md-raised" ng-disabled="resForm.$invalid" ng-click="vm.save()">
+            <span>Guardar reserva</span>
+         </md-button>
+      </md-card>
+      <md-divider></md-divider>
+      <div style="text-align:center;">
+         <span>Recuerde que puede modificar la informacion tantas veces como desee hasta tanto no se formalice la reserva</span>
+      </div>
+
+   </form>
+
+
+   <div style="text-align:center;">
+      <h4>Complejo San Clemente</h4>
+      <span> Tel: 02477-15331941</span>
+      <span>complejoSanClemente@gmail.com</span>
+   </div>
+
+</div>

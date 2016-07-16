@@ -1,0 +1,25 @@
+<md-toolbar class="csc_toolbar">
+   <div class="md-toolbar-tools">
+      <md-button hide-gt-xs ng-click="vm.toggleList()" aria-label="menu" class="csc_toolbar_icon">
+         <ng-md-icon icon="menu"></ng-md-icon>
+      </md-button>
+      <h1>Complejo San Clemente</h1>
+      <md-fab-speed-dial md-direction="down" md-open="false" class="md-scale md-fab-top-right">
+         <md-fab-trigger>
+            <md-button aria-label="Administracion" class="md-fab md-accent">
+               <ng-md-icon icon="settings"></ng-md-icon>
+            </md-button>
+         </md-fab-trigger>
+         <md-fab-actions>
+            <md-button aria-label="Usuarios" class="md-fab md-raised md-mini" ng-click="vm.showContactOptions($event)">
+               <md-tooltip md-direction="left">Usuarios</md-tooltip>
+               <ng-md-icon icon="sentiment_satisfied"></ng-md-icon>
+            </md-button>
+            <md-button aria-label="Configuracion" class="md-fab md-raised md-mini" ng-click="vm.clearNotes($event)">
+               <md-tooltip md-direction="left">Configuracion</md-tooltip>
+               <ng-md-icon icon="build"></ng-md-icon>
+            </md-button>
+         </md-fab-actions>
+      </md-fab-speed-dial>
+   </div>
+</md-toolbar>

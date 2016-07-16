@@ -1,0 +1,118 @@
+html,
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.csc_background {
+  background: -webkit-radial-gradient(#bbb, #888) !important;
+  background: -o-radial-gradient(#bbb, #888) !important;
+  background: -moz-radial-gradient(#bbb, #888) !important;
+  background: radial-gradient(#bbb, #888) !important;
+}
+
+.csc_toolbar {
+  background: -webkit-linear-gradient(#aaa, #666) !important;
+  background: -o-linear-gradient(#aaa, #666) !important;
+  background: -moz-linear-gradient(#aaa, #666) !important;
+  background: linear-gradient(#aaa, #666) !important;
+  height:10px;
+  color: white !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.csc_toolbar_icon{
+  color:white !important;
+  margin-left:-40px !important;
+  margin-right:-20px;
+}
+
+.csc_sidenav {
+  background: -webkit-linear-gradient(#999, #555) !important;
+  background: -o-linear-gradient(#999, #555) !important;
+  background: -moz-linear-gradient(#999, #555) !important;
+  background: linear-gradient(#999, #555) !important;
+}
+
+.csc_sideContent {
+  background: transparent;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.sidenav_icon {
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+.title {
+  margin-top: 15px;
+  color: white;
+  font-size: 20px;
+  text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.2);
+}
+
+.login_frame {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.login_loginBack {
+  background: -webkit-linear-gradient(#38b, #148) !important;
+  background: -o-linear-gradient(#38b, #148) !important;
+  background: -moz-linear-gradient(#38b, #148) !important;
+  background: radial-gradient(#38b, #148) !important;
+}
+
+.login_inner {
+  width: 300px;
+  margin: auto;
+  background-color: yellow;
+}
+
+.login_logo {
+  text-align: center;
+  margin: 40px;
+}
+
+.login_logo img {
+  width: 100px;
+}
+
+.login_form {
+  margin: 20px;
+  padding: 10px;
+}
+
+.form_footer {
+  line-height: 10px;
+  color: white;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.reservation_back {
+  background-color: lightgray;
+}
+
+.textnote {
+  margin: 10px;
+  padding: 0px;
+  text-align: center;
+  color: gray;
+}
+
+
+/* Angular Material */
+
+.md-datepicker-input-container {
+  width: 90px;
+  margin-left: 0px !important;
+}

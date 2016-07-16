@@ -1,0 +1,74 @@
+<div flex class="login_loginBack login_frame" >
+   <div class="login_logo" ng-show="$mdMedia('max-width: 450px')">
+      <img src="styles/images/beach.png" />
+   </div>
+   <md-card style="max-width:350px;margin:auto;"
+            aria-label="Login" 
+            md-theme="login" md-whiteframe="4">
+      <md-toolbar>
+         <div class="md-toolbar-tools title" flex layout-align="center">
+            <h2>Complejo San Clemente</h2>
+            <!--<span flex></span>-->
+            <!--<md-button class="md-icon-button" ng-click="cancel()">-->
+            <!--  <ng-md-icon icon="assignment" style="fill: black"></ng-md-icon>-->
+            <!--</md-button>-->
+         </div>
+      </md-toolbar>
+      <form name="loginForm">
+         <div layout="row">
+            <ng-md-icon icon="email" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <label>Ingrese correo electronico</label>
+               <input type="email" ng-model="vm.email" name="email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" required>
+               <div ng-messages="loginForm.email.$error" role="alert">
+                  <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                     El campo es obligatorio
+                  </div>
+               </div>
+            </md-input-container>
+         </div>
+         <div layout="row" md-whiteframe="4">
+            <span flex> </span>
+         <md-button ng-disabled="loginForm.email.$invalid" ng-click="vm.login()" md-autofocus class="md-raised md-primary"> Ingresar </md-button>
+      </div>
+      </form>
+   </md-card>
+   </div>
+   <!--<div layout="column">-->
+   <!--   <div layout="row" layout-align="center" class="title" hide-xs>-->
+   <!--      <h2>Complejo San Clemente</h2>-->
+   <!--   </div>-->
+   <!--   <div layout="row" layout-xs="column">-->
+   <!--      <div flex="10"></div>-->
+   <!--      <div layout="row" layout-xs="column" flex>-->
+   <!--         <div class="login_logo">-->
+   <!--            <img src="styles/images/beach.png" />-->
+   <!--         </div>-->
+   <!--         <form name="card" class="login_form" syle="background-color:white" md-whiteframe="3" layout="column" >-->
+   <!--           
+   <!--            <md-input-container layout="row" flex>-->
+   <!--               <ng-md-icon icon="assignment" style="fill: gray"></ng-md-icon>-->
+   <!--               <div layout="column" flex>-->
+   <!--                  <label>Ingrese su correo electrónico</label>-->
+   <!--                  <input type="email" ng-model="vm.email" name="correo" required>-->
+   <!--                  <div ng-messages="card.correo.$error">-->
+   <!--                     <div ng-message="required">Este dato es obligatorio</div>-->
+   <!--                     <div ng-message="email">Formato de correo erroneo</div>-->
+   <!--                  </div>-->
+   <!--               </div>-->
+   <!--            </md-input-container>-->
+   <!--            <md-button class="md-primary md-raised" ng-disabled="card.correo.$invalid" ng-click="vm.login()">-->
+   <!--               <span>Ingresar</span>-->
+   <!--            </md-button>-->
+   <!--         </form>-->
+   <!--      </div>-->
+   <!--      <div flex="10" hide-xs></div>-->
+   <!--   </div>-->
+
+
+   <footer class="footnote form_footer">
+      <h4>Complejo San Clemente</h4>
+      <p> Tel: 02477-15331941</p>
+      <p>complejoSanClemente@gmail.com</p>
+   </footer>
+</div>

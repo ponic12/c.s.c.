@@ -1,0 +1,305 @@
+{
+  "data": {
+    "blog": [],
+    "company": [],
+    "guest": [],
+    "hostage": [],
+    "post": [],
+    "reservation": [],
+    "role": [],
+    "user": [],
+    "userrole": []
+  },
+  "schema": {
+    "blog": {
+      "name": {
+        "type": "string",
+        "unique": true
+      },
+      "color": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "company": {
+      "name": {
+        "type": "string",
+        "unique": true
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "guest": {
+      "company": {
+        "type": "string"
+      },
+      "firstName": {
+        "type": "string"
+      },
+      "lastName": {
+        "type": "string"
+      },
+      "docNum": {
+        "type": "string"
+      },
+      "address": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      },
+      "phone": {
+        "type": "string"
+      },
+      "mobile": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "hostage": {
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "post": {
+      "text": {
+        "type": "string"
+      },
+      "user": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "user"
+      },
+      "owner": {
+        "type": "integer",
+        "model": "blog",
+        "foreignKey": true,
+        "alias": "owner"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      }
+    },
+    "reservation": {
+      "dateFrom": {
+        "type": "date"
+      },
+      "dateTo": {
+        "type": "date"
+      },
+      "children": {
+        "type": "integer",
+        "defaultsTo": 0
+      },
+      "adults": {
+        "type": "integer",
+        "defaultsTo": 1
+      },
+      "room": {
+        "type": "integer",
+        "model": "hostage",
+        "foreignKey": true,
+        "alias": "room"
+      },
+      "guest": {
+        "type": "integer",
+        "model": "guest",
+        "foreignKey": true,
+        "alias": "guest"
+      },
+      "user": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "user"
+      },
+      "valid": {
+        "type": "boolean",
+        "defaultsTo": false
+      },
+      "expired": {
+        "type": "boolean",
+        "defaultsTo": false
+      },
+      "vehicle": {
+        "type": "boolean",
+        "defaultsTo": false
+      },
+      "pet": {
+        "type": "boolean",
+        "defaultsTo": false
+      },
+      "petSize": {
+        "type": "string",
+        "enum": [
+          "chica",
+          "mediana",
+          "grande"
+        ]
+      },
+      "contact": {
+        "type": "string",
+        "enum": [
+          "telefono",
+          "internet",
+          "publicidad",
+          "amigo"
+        ]
+      },
+      "contactWebSite": {
+        "type": "string"
+      },
+      "cost": {
+        "type": "float"
+      },
+      "sign": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "role": {
+      "name": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "user": {
+      "company": {
+        "type": "integer",
+        "model": "company",
+        "foreignKey": true,
+        "alias": "company"
+      },
+      "firstName": {
+        "type": "string"
+      },
+      "lastName": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "unique": true
+      },
+      "encryptedPassword": {
+        "type": "string"
+      },
+      "lastLogin": {
+        "type": "date",
+        "defaultsTo": "1970-01-01T00:00:00.000Z"
+      },
+      "color": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "userrole": {
+      "user": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "user"
+      },
+      "role": {
+        "type": "integer",
+        "model": "role",
+        "foreignKey": true,
+        "alias": "role"
+      }
+    }
+  },
+  "counters": {
+    "user": {},
+    "blog": {},
+    "company": {},
+    "guest": {},
+    "hostage": {},
+    "post": {},
+    "reservation": {},
+    "role": {},
+    "userrole": {}
+  }
+}
