@@ -6,9 +6,9 @@
       .module('admin.app')
       .controller('admin.ctrl', Controller);
 
-   Controller.$inject = ['$mdSidenav', '$mdToast', '$mdDialog', '$mdMedia'];
+   Controller.$inject = ['$mdSidenav', '$mdToast', '$mdDialog', '$mdMedia', '$state'];
 
-   function Controller($mdSidenav, $mdToast, $mdDialog, $mdMedia) {
+   function Controller($mdSidenav, $mdToast, $mdDialog, $mdMedia, $state) {
       var vm = this;
       vm.isLogged=true;
       vm.email;
@@ -34,10 +34,17 @@
       vm.login = login;
       vm.save = save;
       vm.toggleList = toggleList;
+      vm.selectedMenu = selectedMenu;
+      vm.cerrarSesion = cerrarSesion;
       //////////////////////////////
       
       function toggleList() {
          $mdSidenav('left').toggle();
+      }
+      
+      function selectedMenu(opt){
+         toggleList();
+         $state.go(opt);
       }
       
       function login(){
@@ -49,7 +56,9 @@
          console.log('save reservation');
          openToast('Se ha guardado la reserva');
       }
-
+      function cerrarSesion(){
+         toggleList();
+      }
 
 
 

@@ -1,0 +1,45 @@
+<div ng-controller="bitacoras.ctrl as vm" class="_bit_frame">
+
+   <div layout layout-wrap layout-padding layout-align="center">
+      <div ng-repeat="folder in vm.dataBitacoras track by $index">
+         <div class="folderStyle"
+            ng-style="{
+            'background-image':'-webkit-gradient(linear, left top, left bottom, color-stop(0%, #bbb), color-stop(100%,#'+ folder.color +'))',
+            'background':'-moz-linear-gradient(top, color-stop(0%, #bbb), color-stop(100%,#'+ folder.color +'))'
+            }"
+            ng-click="vm.goto(folder)" 
+            hold-button="vm.edit($event, $promise, folder)" hold-button-delay="500">
+            
+            <div class="bit_btn">
+               <div ng-show="folder.editMode">
+                  <input class="bit_nombre_edit" type="text" ng-model="vm.selBitacora.name">
+                  <input class="bit_color_picker" type="color" ng-model="vm.selBitacora.color">
+                  
+                  <div class="bit_btn_black bit_close" ng-click="vm.close($event, folder)">
+                     <ng-md-icon icon="close" class="bit_btn_icon"></ng-md-icon>
+                  </div>
+                  
+                  <div class="bit_btn_black bit_delete" ng-click="vm.destroy(folder)">
+                     <ng-md-icon icon="delete" class="bit_btn_icon"></ng-md-icon>
+                  </div>
+                  <div class="bit_btn_black bit_save" ng-click="vm.save(folder)">
+                     <ng-md-icon icon="done" class="bit_btn_icon"></ng-md-icon>
+                  </div>
+               </div>
+               
+               <div ng-hide="folder.editMode" class="bit_nombre">{{folder.name}}</div>
+               <div class="bit_alerts" ng-show="folder.alertsCounter > 0">
+                  <div class="bit_alertsNum">{{folder.alertsCounter}}</div>
+               </div>
+               <div class="bit_fecha">{{vm.formatFecha(folder.updatedAt)}}</div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <!--<md-button class="md-fab md-fab-bottom-right" aria-label="Add folder" ng-click="vm.create()" ng-disabled="vm.disableAdd">-->
+   <!--   <ng-md-icon icon="add"></ng-md-icon>-->
+   <!--</md-button>-->
+
+</div>

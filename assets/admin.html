@@ -18,7 +18,7 @@
    <!--STYLES END-->
 </head>
 
-<body ng-controller="admin.ctrl as vm" >
+<body ng-controller="admin.ctrl as vm" class="csc_background">
 
    <div ng-hide="vm.isLogged" ng-include="'admin/signin.tpl.html'"></div>
    <div ng-show="vm.isLogged" ng-include="'admin/shell.tpl.html'"></div>

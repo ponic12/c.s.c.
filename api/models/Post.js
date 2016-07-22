@@ -16,8 +16,8 @@ module.exports = {
     user: {
       model:'User'
     },
-    owner: {
-      model: 'blog'
+    blog: {
+      model: 'Blog'
     }
   }
 };

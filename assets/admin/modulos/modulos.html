@@ -1,13 +1,46 @@
-<div flex>
-MAIN html
-   <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
+<!--<div flex>-->
+<!--MAIN html-->
+<!--   <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">-->
 
-      <md-grid-tile class="gray" md-rowspan="3" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1">
-         <md-grid-tile-footer>
-            <h3>Bitacoras</h3>
-         </md-grid-tile-footer>
-      </md-grid-tile>
+<!--      <md-grid-tile class="gray" md-rowspan="3" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1">-->
+<!--         <md-grid-tile-footer>-->
+<!--            <h3>Bitacoras</h3>-->
+<!--         </md-grid-tile-footer>-->
+<!--      </md-grid-tile>-->
 
-   </md-grid-list>
+<!--   </md-grid-list>-->
 
+<!--</div>-->
+
+<div ng-controller="modulos.ctrl as vm" class="main_frame" layout-align="center">
+    <a href="#/agenda">
+        <button type="button" class="md-accent main_btn">
+            <img src="admin/modulos/images/calendar.png">
+            <div class="main_txt">Agenda</div>
+        </button>
+    </a>
+    <a href="#/bitacoras">
+        <button type="button" class="md-primary md-raised main_btn">
+            <img src="admin/modulos/images/bitacora.png">
+            <div class="main_txt">Bitácoras</div>
+        </button>
+    </a>
+    <a href="#/dialogos">
+        <button type="button" class="md-warn md-raised main_btn">
+            <img src="admin/modulos/images/chat.png">
+            <div class="main_txt">Dialogos</div>
+        </button>
+    </a>
+    <a href="#/huespedes">
+        <button type="button" class="md-primary main_btn">
+            <img src="admin/modulos/images/signup.png" >
+            <div class="main_txt">Huespedes</div>
+        </button>
+    </a>
+    <a href="#/contactos">
+        <button type="button" class="md-primary main_btn">
+            <img src="admin/modulos/images/clients.png" >
+            <div class="main_txt">Contactos</div>
+        </button>
+    </a>
 </div>

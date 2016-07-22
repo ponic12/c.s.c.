@@ -3,11 +3,11 @@
       <md-button hide-gt-xs ng-click="vm.toggleList()" aria-label="menu" class="csc_toolbar_icon">
          <ng-md-icon icon="menu"></ng-md-icon>
       </md-button>
-      <h1>Complejo San Clemente</h1>
-      <md-fab-speed-dial md-direction="down" md-open="false" class="md-scale md-fab-top-right">
+      <h1>{{modulo}}</h1>
+      <md-fab-speed-dial md-direction="down" md-open="false" class="toolbar_fab md-scale md-fab-top-right">
          <md-fab-trigger>
-            <md-button aria-label="Administracion" class="md-fab md-accent">
-               <ng-md-icon icon="settings"></ng-md-icon>
+            <md-button aria-label="Administracion" class="md-fab md-accent" >
+               <ng-md-icon icon="settings" style="margin-top:-11px"></ng-md-icon>
             </md-button>
          </md-fab-trigger>
          <md-fab-actions>

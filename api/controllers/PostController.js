@@ -9,7 +9,7 @@
 /*global Post*/
 module.exports = {
 
-  getByIdBlog: function(req, res) {
+  getPostsByBlog: function(req, res) {
     var idBit = req.params.id;
     Post.find({'owner':idBit})
       .populate('user')

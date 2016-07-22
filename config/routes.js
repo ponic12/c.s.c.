@@ -74,14 +74,10 @@ module.exports.routes = {
   '/role/get':'RoleController.get',
   '/role/user/get/:name':'RoleController.getUsers',
  
-  '/post/getByIdBlog/:id':'PostController.getByIdBlog',
-  // 'GET /bitacora': 'BitacoraController.getBitacoras',
-  // 'POST /bitacora': 'BitacoraController.createBitacora'
+  'GET /post/getPostsByBlog/:id':'PostController.getPostsByBlog',
+  'GET /blog': 'BlogController.getBlogs',
+  'POST /blog': 'BlogController.createBlog',
   
-  
-  // '/form': {
-  //   view: 'form'
-  // },
   'GET /form/signin': 'ReservaController.signin',
   
   /***************************************************************************

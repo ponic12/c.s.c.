@@ -17,14 +17,20 @@ body {
   background: -o-linear-gradient(#aaa, #666) !important;
   background: -moz-linear-gradient(#aaa, #666) !important;
   background: linear-gradient(#aaa, #666) !important;
-  height:10px;
+  height: 10px;
   color: white !important;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.csc_toolbar_icon{
-  color:white !important;
-  margin-left:-40px !important;
-  margin-right:-20px;
+
+.csc_toolbar_icon {
+  color: white !important;
+  margin-left: -40px !important;
+  margin-right: -20px;
+}
+
+.toolbar_fab {
+  margin-top: -15px;
+  margin-right: -25px;
 }
 
 .csc_sidenav {
@@ -32,6 +38,7 @@ body {
   background: -o-linear-gradient(#999, #555) !important;
   background: -moz-linear-gradient(#999, #555) !important;
   background: linear-gradient(#999, #555) !important;
+  width:200px;
 }
 
 .csc_sideContent {
@@ -111,6 +118,11 @@ body {
 
 
 /* Angular Material */
+
+.md-button.md-fab {
+  width: 45px;
+  height: 45px;
+}
 
 .md-datepicker-input-container {
   width: 90px;

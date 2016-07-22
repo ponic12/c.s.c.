@@ -1,13 +1,181 @@
 {
   "data": {
-    "blog": [],
+    "blog": [
+      {
+        "name": "ssss",
+        "color": "ff00ff",
+        "createdAt": "2016-06-05T23:17:04.316Z",
+        "updatedAt": "2016-07-19T23:23:15.386Z",
+        "id": 6,
+        "usuario": "PP"
+      },
+      {
+        "name": "Colchoneta",
+        "color": "00faeb",
+        "createdAt": "2016-06-05T23:30:59.821Z",
+        "updatedAt": "2016-07-21T11:04:51.376Z",
+        "id": 7,
+        "usuario": "PP"
+      },
+      {
+        "name": "Terrenos",
+        "color": "f3a4ff",
+        "usuario": "PP",
+        "createdAt": "2016-06-06T18:00:32.962Z",
+        "updatedAt": "2016-06-06T18:00:32.962Z",
+        "id": 12
+      },
+      {
+        "name": "Playa",
+        "color": "4e9ffb",
+        "usuario": "PP",
+        "createdAt": "2016-06-06T18:01:39.717Z",
+        "updatedAt": "2016-06-06T18:16:07.879Z",
+        "id": 13
+      },
+      {
+        "name": "Bosque",
+        "color": "36f81d",
+        "usuario": "PP",
+        "createdAt": "2016-06-06T18:15:06.147Z",
+        "updatedAt": "2016-06-06T18:15:06.147Z",
+        "id": 14
+      },
+      {
+        "name": "Gas",
+        "color": "3c9354",
+        "usuario": "PP",
+        "createdAt": "2016-06-06T21:27:49.933Z",
+        "updatedAt": "2016-06-06T21:27:49.933Z",
+        "id": 15
+      },
+      {
+        "name": "Luz",
+        "color": "fb2717",
+        "usuario": "PP",
+        "createdAt": "2016-06-06T21:28:08.718Z",
+        "updatedAt": "2016-06-06T21:28:08.718Z",
+        "id": 16
+      },
+      {
+        "name": "Autos",
+        "color": "2477fb",
+        "usuario": "PP",
+        "createdAt": "2016-06-06T21:33:40.649Z",
+        "updatedAt": "2016-06-06T21:33:40.649Z",
+        "id": 17
+      }
+    ],
     "company": [],
     "guest": [],
-    "hostage": [],
-    "post": [],
-    "reservation": [],
+    "hostage": [
+      {
+        "email": "marcelo@hotmail.com",
+        "createdAt": "2016-06-26T17:36:46.933Z",
+        "updatedAt": "2016-06-26T17:36:46.933Z",
+        "id": 3
+      },
+      {
+        "email": "ponic12@gmail.com",
+        "createdAt": "2016-06-26T19:10:06.323Z",
+        "updatedAt": "2016-06-26T19:10:06.323Z",
+        "id": 4
+      }
+    ],
+    "post": [
+      {
+        "text": "Como van?",
+        "user": 5,
+        "blog": 6,
+        "createdAt": "2016-06-18T19:51:46.938Z",
+        "id": 30
+      },
+      {
+        "text": "Como va el arreglo del agua?",
+        "user": 5,
+        "blog": 7,
+        "createdAt": "2016-06-18T19:57:44.761Z",
+        "id": 31
+      },
+      {
+        "text": "Todo bien por suerte.",
+        "user": 5,
+        "blog": 7,
+        "createdAt": "2016-06-18T19:58:12.535Z",
+        "id": 32
+      },
+      {
+        "text": "Repetime por favor...",
+        "user": 5,
+        "blog": 7,
+        "createdAt": "2016-06-18T19:58:59.482Z",
+        "id": 33
+      },
+      {
+        "text": "hola",
+        "user": 6,
+        "blog": 7,
+        "createdAt": "2016-06-18T20:04:16.565Z",
+        "id": 34
+      },
+      {
+        "text": "Como anda todo?",
+        "user": 6,
+        "blog": 7,
+        "createdAt": "2016-06-20T15:13:11.787Z",
+        "id": 35
+      }
+    ],
+    "reservation": [
+      {
+        "guest": 3,
+        "guestNum": 1,
+        "valid": false,
+        "expired": false,
+        "vehicle": false,
+        "pet": false,
+        "createdAt": "2016-06-26T17:36:46.938Z",
+        "updatedAt": "2016-06-26T17:36:46.938Z",
+        "id": 1
+      },
+      {
+        "guest": 4,
+        "children": 0,
+        "adults": 1,
+        "valid": false,
+        "expired": false,
+        "vehicle": false,
+        "pet": false,
+        "createdAt": "2016-06-26T19:10:06.332Z",
+        "updatedAt": "2016-06-26T19:10:06.332Z",
+        "id": 2
+      }
+    ],
     "role": [],
-    "user": [],
+    "user": [
+      {
+        "firstName": "Pepe",
+        "lastName": "Argento",
+        "email": "p@p.com",
+        "encryptedPassword": "1450575459",
+        "lastLogin": "2016-06-05T23:47:51.192Z",
+        "createdAt": "2016-06-05T23:47:51.218Z",
+        "updatedAt": "2016-06-18T23:56:02.903Z",
+        "id": 5,
+        "color": "FA0"
+      },
+      {
+        "firstName": "Marta",
+        "lastName": "Thorne",
+        "email": "mthorne@gmail.com",
+        "encryptedPassword": "1450575459",
+        "lastLogin": "2016-06-17T22:56:55.885Z",
+        "createdAt": "2016-06-17T22:56:55.911Z",
+        "updatedAt": "2016-06-18T23:56:27.436Z",
+        "id": 6,
+        "color": "F00"
+      }
+    ],
     "userrole": []
   },
   "schema": {
@@ -292,13 +460,23 @@
     }
   },
   "counters": {
-    "user": {},
-    "blog": {},
+    "user": {
+      "id": 6
+    },
+    "blog": {
+      "id": 17
+    },
     "company": {},
     "guest": {},
-    "hostage": {},
-    "post": {},
-    "reservation": {},
+    "hostage": {
+      "id": 4
+    },
+    "post": {
+      "id": 35
+    },
+    "reservation": {
+      "id": 2
+    },
     "role": {},
     "userrole": {}
   }

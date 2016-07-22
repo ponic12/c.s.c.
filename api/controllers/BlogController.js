@@ -7,23 +7,20 @@
  /*global Blog*/
 
 module.exports = {
-  // getBitacoras: function(req, res) {
-  //     console.log('Levanta todas las bitacoras...');
-  //     return res;
-  // },
-  // createBitacora: function(req, res){
-  //     console.log('Crea bitacora...');
-  //     return res;
-  // },
-
-  get: function(req, res) {
-    Blog.find()
+  getBlogs: function(req, res) {
+      console.log('Levanta todas las bitacoras...');
+      Blog.find()
       .exec(function(err, blogs) {
         if (err) {
           return res.json(err);
         }
         return res.json(blogs);
       });
+      return res;
   },
+  createBlog: function(req, res){
+      console.log('Crea bitacora...');
+      return res;
+  }
 
 };

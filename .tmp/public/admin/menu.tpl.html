@@ -7,46 +7,46 @@
    <md-content class="csc_sideContent">
       <md-list>
          <md-list-item>
-            <md-button ui-sref="modulos" ng-class="{'selected' : it === vm.selected }">
-               <ng-md-icon icon="now_widgets" class="sidenav_icon"></ng-md-icon>
+            <a ng-click="vm.selectedMenu('modulos')">
+               <ng-md-icon icon="now_widgets" class="md-whiteframe-3dp sidenav_icon"></ng-md-icon>
                Modulos
-            </md-button>
+            </a>
          </md-list-item>
          <md-list-item>
-            <md-button ui-sref="agenda" ng-class="{'selected' : it === vm.selected }">
-               <ng-md-icon icon="date_range" class="sidenav_icon"></ng-md-icon>
+            <a ng-click="vm.selectedMenu('agenda')" ng-class="{'selected' : it === vm.selected }">
+               <ng-md-icon icon="date_range" class="md-whiteframe-3dp sidenav_icon"></ng-md-icon>
                Agenda
-            </md-button>
+            </a>
          </md-list-item>
          <md-list-item>
-            <md-button ui-sref="bitacoras" ng-class="{'selected' : it === vm.selected }">
-               <ng-md-icon icon="my_library_books" class="sidenav_icon"></ng-md-icon>
+            <a ng-click="vm.selectedMenu('bitacoras')" ng-class="{'selected' : it === vm.selected }">
+               <ng-md-icon icon="my_library_books" class="md-whiteframe-3dp sidenav_icon"></ng-md-icon>
                Bitacoras
-            </md-button>
+            </a>
          </md-list-item>
          <md-list-item>
-            <md-button ui-sref="dialogos" ng-class="{'selected' : it === vm.selected }">
-               <ng-md-icon icon="chat" class="sidenav_icon"></ng-md-icon>
+            <a ng-click="vm.selectedMenu('dialogos')" ng-class="{'selected' : it === vm.selected }">
+               <ng-md-icon icon="chat" class="md-whiteframe-3dp sidenav_icon"></ng-md-icon>
                Dialogos
-            </md-button>
+            </a>
          </md-list-item>
          <md-list-item>
-            <md-button ui-sref="huespedes" ng-class="{'selected' : it === vm.selected }">
-               <ng-md-icon icon="hotel" class="sidenav_icon"></ng-md-icon>
+            <a ng-click="vm.selectedMenu('huespedes')" ng-class="{'selected' : it === vm.selected }">
+               <ng-md-icon icon="hotel" class="md-whiteframe-3dp sidenav_icon"></ng-md-icon>
                Huespedes
-            </md-button>
+            </a>
          </md-list-item>
          <md-list-item>
-            <md-button ui-sref="contactos" ng-class="{'selected' : it === vm.selected }">
-               <ng-md-icon icon="group" class="sidenav_icon"></ng-md-icon>
+            <a ng-click="vm.selectedMenu('contactos')" ng-class="{'selected' : it === vm.selected }">
+               <ng-md-icon icon="group" class="md-whiteframe-3dp sidenav_icon"></ng-md-icon>
                Contactos
-            </md-button>
+            </a>
          </md-list-item>  
          <md-list-item>
-            <md-button ng-click="vm.cerrarSesion()" ng-class="{'selected' : it === vm.selected }">
-               <ng-md-icon icon="logout" class="sidenav_icon"></ng-md-icon>
+            <a ng-click="vm.cerrarSesion()" ng-class="{'selected' : it === vm.selected }">
+               <ng-md-icon icon="logout" class="md-whiteframe-3dp sidenav_icon"></ng-md-icon>
                Salir
-            </md-button>
+            </a>
          </md-list-item>          
       </md-list>
    </md-content>
