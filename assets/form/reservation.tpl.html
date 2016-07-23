@@ -140,13 +140,45 @@
             <md-input-container class="md-block" ng-show="vm.resData.pet" layout-xs="column" style="top: -20px;right: 10px;">
                <label>Tamaño</label>
                <md-select name="size" ng-model="vm.resData.petSize">
-                  <md-option value="1">Grande</md-option>
-                  <md-option value="2">Mediana</md-option>
-                  <md-option value="3">Pequeña</md-option>
+                  <md-option value="grande">Grande</md-option>
+                  <md-option value="mediana">Mediana</md-option>
+                  <md-option value="pequeña">Pequeña</md-option>
                </md-select>
             </md-input-container>
          </div>
+         
+         <div layout="row" flex>
+            <ng-md-icon icon="share" flex="10" style="fill: gray; margin-top: 0px; margin-left:10px"></ng-md-icon>
+            <md-input-container class="md-block">
+               <label>Referencia de contacto</label>
+               <md-select name="size" ng-model="vm.resData.reference">
+                  <md-option value="amigos">Amigos</md-option>
+                  <md-option value="facebook">Facebook</md-option>
+                  <md-option value="google">Google</md-option>
+                  <md-option value="publicidad">Publicidad</md-option>
+                  <md-option value="otro">Otro medio...</md-option>
+               </md-select>
+            </md-input-container>
+            <md-input-container flex class="md-block" layout-xs="column" ng-show="vm.resData.reference==5">
+               <label>Comentario</label>
+               <input ng-model="vm.resData.refComment" name="refComent">
+            </md-input-container>
+         </div>
 
+         <div layout="row">
+            <ng-md-icon icon="attach_money" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block" ng-disabled="true">
+               <label>Precio</label>
+               <input type="number" ng-model="vm.resData.price" name="price">
+            </md-input-container>
+         </div>
+         <div layout="row">
+            <ng-md-icon icon="monetization" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block" ng-disabled="true">
+               <label>Seña</label>
+               <input type="number" ng-model="vm.resData.fee" name="sign">
+            </md-input-container>
+         </div>
 
          <md-whiteframe layout="column" class="md-whiteframe-2dp textnote" ng-style="background-color: #eee;">
             <h4>Notas:</h4>

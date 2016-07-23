@@ -49,20 +49,20 @@ module.exports = {
     },
     petSize:{
       type: 'string',
-      enum:['chica', 'mediana', 'grande']
+      enum:['pequeña', 'mediana', 'grande']
     },
-    contact:{
+    reference:{
       type:'string',
-      enum:['telefono', 'internet', 'publicidad', 'amigo' ]
+      enum:['amigos', 'facebook', 'google', 'publicidad', 'otro' ]
     },
-    contactWebSite:{
+    refComment:{
       type:'string'
     },
-    cost: {
+    price: {
       type:'float'
     },
     sign: {
-      type:'string'
+      type:'float'
     }
   }
 };
