@@ -71,7 +71,7 @@
       {
         "email": "ponic12@gmail.com",
         "createdAt": "2016-07-23T10:51:43.541Z",
-        "updatedAt": "2016-07-23T15:31:57.966Z",
+        "updatedAt": "2016-07-23T20:03:00.775Z",
         "id": 1,
         "firstName": "Pepe",
         "lastName": "Argento",
@@ -168,10 +168,12 @@
         "vehicle": true,
         "pet": false,
         "createdAt": "2016-07-23T10:51:57.744Z",
-        "updatedAt": "2016-07-23T15:31:57.982Z",
+        "updatedAt": "2016-07-23T20:03:00.801Z",
         "id": 3,
         "fechaDesde": "2016-08-05T03:00:00.000Z",
-        "fechaHasta": "2016-08-07T03:00:00.000Z"
+        "fechaHasta": "2016-08-07T03:00:00.000Z",
+        "reference": "otro",
+        "refComment": "www.facebook.com/pergamino"
       },
       {
         "guest": 2,
@@ -410,28 +412,29 @@
       "petSize": {
         "type": "string",
         "enum": [
-          "chica",
+          "pequeña",
           "mediana",
           "grande"
         ]
       },
-      "contact": {
+      "reference": {
         "type": "string",
         "enum": [
-          "telefono",
-          "internet",
+          "amigos",
+          "facebook",
+          "google",
           "publicidad",
-          "amigo"
+          "otro"
         ]
       },
-      "contactWebSite": {
+      "refComment": {
         "type": "string"
       },
-      "cost": {
+      "price": {
         "type": "float"
       },
       "sign": {
-        "type": "string"
+        "type": "float"
       },
       "id": {
         "type": "integer",

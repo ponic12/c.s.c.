@@ -1,11 +1,11 @@
-<div class="reservation_back" >
+<div class="reservation_back">
    <md-toolbar class="md-primary">
       <div class="md-toolbar-tools" layout-align="center center">
          <h2 class="md-flex">Formulario de reserva</h2>
       </div>
    </md-toolbar>
    <form name="resForm">
-      
+
       <md-card name="fechas" layout="column">
          <div layout="row" style="margin:auto">
             <md-datepicker ng-model="vm.resData.fechaDesde" placeholder="Fecha de ingreso" class="datePick" md-min-date="vm.minDate" md-max-date="vm.maxDate" style="margin:0px 10px"></md-datepicker>
@@ -22,7 +22,7 @@
                <h2 class="md-flex">Datos personales</h2>
             </div>
          </md-toolbar>
-         
+
          <div layout="row">
             <ng-md-icon icon="email" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
@@ -35,7 +35,7 @@
                </div>
             </md-input-container>
          </div>
-         
+
          <div layout="row">
             <ng-md-icon icon="person" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
@@ -45,7 +45,7 @@
                   <div ng-message="required">Este dato es obligatorio</div>
                </div>
             </md-input-container>
-         </div>   
+         </div>
 
          <div layout="row">
             <ng-md-icon icon="person" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
@@ -57,7 +57,7 @@
                </div>
             </md-input-container>
          </div>
-         
+
          <div layout="row">
             <ng-md-icon icon="contact_mail" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
@@ -67,7 +67,7 @@
                   <div ng-message="required">Este dato es obligatorio</div>
                </div>
             </md-input-container>
-         </div>   
+         </div>
 
          <div layout="row">
             <ng-md-icon icon="business" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
@@ -78,8 +78,8 @@
                   <div ng-message="required">Este dato es obligatorio</div>
                </div>
             </md-input-container>
-         </div>   
-         
+         </div>
+
          <div layout="row">
             <ng-md-icon icon="location_on" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
@@ -87,7 +87,7 @@
                <input type="text" ng-model="vm.resData.guest.local" name="local">
             </md-input-container>
          </div>
-         
+
          <div layout="row">
             <ng-md-icon icon="phone" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
@@ -95,7 +95,7 @@
                <input ng-model="vm.resData.guest.telephone" name="telephone">
             </md-input-container>
          </div>
-         
+
          <div layout="row">
             <ng-md-icon icon="phonelink_ring" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
@@ -114,7 +114,7 @@
                <input type="number" ng-model="vm.resData.children" name="children">
             </md-input-container>
          </div>
-         
+
          <div layout="row">
             <ng-md-icon icon="people" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
@@ -122,7 +122,7 @@
                <input type="number" ng-model="vm.resData.adults" name="adults">
             </md-input-container>
          </div>
-         
+
          <div layout="row">
             <ng-md-icon icon="directions_car" flex="10" style="fill: gray; margin-top: 20px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
@@ -131,29 +131,65 @@
                </md-checkbox>
             </md-input-container>
          </div>
-         
-         <div layout="row" flex>
-            <ng-md-icon icon="pets" flex="10" style="fill: gray; margin-top: 0px; margin-left:10px"></ng-md-icon>
-            <md-checkbox name="pet-ok" ng-model="vm.resData.pet" aria-label="CheckboxPet" class="md-warn md-align-top-left" flex>
-               Posee mascota?
-            </md-checkbox>
-            <md-input-container class="md-block" ng-show="vm.resData.pet" layout-xs="column" style="top: -20px;right: 10px;">
+
+         <div layout="row">
+            <ng-md-icon icon="pets" flex="10" style="fill: gray; margin-top: 20px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block">
+               <md-checkbox name="pet-ok" ng-model="vm.resData.pet" aria-label="CheckboxPet" class="md-warn md-align-top-left" flex>
+                  Posee mascota?
+               </md-checkbox>
+            </md-input-container>
+            <md-input-container class="md-block" ng-show="vm.resData.pet" layout-xs="column" style="top: -5px;right: 10px;width: 115px;">
                <label>Tamaño</label>
                <md-select name="size" ng-model="vm.resData.petSize">
-                  <md-option value="1">Grande</md-option>
-                  <md-option value="2">Mediana</md-option>
-                  <md-option value="3">Pequeña</md-option>
+                  <md-option value="grande">Grande</md-option>
+                  <md-option value="mediana">Mediana</md-option>
+                  <md-option value="pequeña">Pequeña</md-option>
                </md-select>
             </md-input-container>
          </div>
 
+         <div layout="row">
+            <ng-md-icon icon="share" flex="10" style="fill: gray; margin-top: 20px; margin-left:10px;margin-right:5px"></ng-md-icon>
+            <md-input-container flex="60" class="md-block">
+               <label>Referencia de contacto</label>
+               <md-select name="size" ng-model="vm.resData.reference">
+                  <md-option value="amigos">Amigos</md-option>
+                  <md-option value="facebook">Facebook</md-option>
+                  <md-option value="google">Google</md-option>
+                  <md-option value="publicidad">Publicidad</md-option>
+                  <md-option value="otro">Otro medio...</md-option>
+               </md-select>
+            </md-input-container>
+         </div>
+         <div layout="row">
+            <md-input-container flex class="md-block" layout-xs="column" ng-show="vm.resData.reference=='otro'" style="margin: 0px 10px;">
+               <label>Comentario</label>
+               <input ng-model="vm.resData.refComment" name="refComent">
+            </md-input-container>
+         </div>
+         
+         <div layout="row">
+            <ng-md-icon icon="attach_money" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block" ng-disabled="true">
+               <label>Precio</label>
+               <input type="number" ng-model="vm.resData.price" name="price">
+            </md-input-container>
+         </div>
+         <div layout="row">
+            <ng-md-icon icon="monetization" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
+            <md-input-container flex class="md-block" ng-disabled="true">
+               <label>Seña</label>
+               <input type="number" ng-model="vm.resData.fee" name="sign">
+            </md-input-container>
+         </div>
 
          <md-whiteframe layout="column" class="md-whiteframe-2dp textnote" ng-style="background-color: #eee;">
             <h4>Notas:</h4>
             <span>Mas de un vehiculo (auto, jet ski, cuatriciclo....) se cobra $100 x dia extra.</span>
             <span>Debe llevar sabanas y toallas.</span>
          </md-whiteframe>
-         
+
          <md-divider></md-divider>
          <md-button class="md-primary md-raised" ng-disabled="resForm.$invalid" ng-click="vm.save()">
             <span>Guardar reserva</span>
@@ -166,9 +202,10 @@
 
    </form>
 
-   <md-button class="md-success md-raised"  ng-click="vm.debug()">
-      <span>Debug</span>
-   </md-button>
+   <!--<md-button class="md-success md-raised" ng-click="vm.debug()">-->
+   <!--   <span>Debug</span>-->
+   <!--</md-button>-->
+   
    <div style="text-align:center;">
       <h4>Complejo San Clemente</h4>
       <span> Tel: 02477-15331941</span>
