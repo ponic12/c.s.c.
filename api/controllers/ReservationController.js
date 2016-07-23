@@ -14,78 +14,79 @@ module.exports = {
       //    Si ocurre un error mostrarlo como warning
       //    Si no se encuentra el email registrado => avisar al usuario y mostrar form vacio
       //        . Crear nuevo Huesped con el mail unicamente
-      //        . Crear nueva Reserva vacia y asociarle el Huesped recien creado
-      //        . Generar response con la reserva + huesped adjunto
+      //        . Crear nueva Reserva vacia 
       //    Si el email esta en la tabla Huesped, generar un response con la siguiente info:
       //        . Datos de la ultima reserva en el siguiente orden de prioridad:
-      //            . Reserva sin formalizar
-      //            . Reserva formalizada no vencida
-      //            . Reserva nueva vacia
+      //            . Reserva sin formalizar (reserva futura sin seña, editable)
+      //            . Reserva formalizada no vencida (sin edicion)
+      //            . Reserva nueva vacia (si ya vencio la anterior)
       //        . Datos personales del huesped
-      //        . Generar response con la reserva + huesped adjunto
+      //
+      //    Generar request con la reserva + huesped adjunto (grabacion)
 
       var paramEmail = req.param('email');
       if (!paramEmail) return res.notFound();
-      
+
       Guest.findOne({
             email: paramEmail
          },
-         function searchHue(err, foundHue) {
+         function(err, foundGuest) {
             if (err) return res.negotiate(err);
-            if (!foundHue) { // No encuentra huesped => crea huesped y reserva vacia
+            if (!foundGuest) { // No encuentra huesped => crea huesped y reserva vacia
                Guest.create({
                      email: paramEmail
-                  }, 
-                  function(err, hue){
+                  },
+                  function(err, newGuest) {
                      if (err) return res.negotiate(err);
                      Reservation.create({
-                           guest: hue.id
-                        }, 
-                        function(err, reserva){
-                           if (err) return res.negotiate(err);
-                           res.status(201);
-                           reserva.guest = hue;
-                           return res.json(reserva);
-                        }
-                     );
+                        guest: newGuest.id
+                     }, function(err, reserva) {
+                        if (err) return res.negotiate(err);
+                        res.status(201);
+                        reserva.guest = newGuest;
+                        return res.json(reserva);
+                     });
                   }
                );
             }
             else { // Encuentra huesped => Evalua reservas
                Reservation.findOne({
-                     valid : false, expired : false
+                     valid: false,
+                     expired: false
                   },
-                  function searchResNotValid(err, foundRes) {
+                  function(err, notValnotExp) {
                      if (err) return res.negotiate(err);
-                     if (!foundRes){ //No encuentra reserva no formalizada (valid) => busca reserva formalizada y no expirada
+                     if (!notValnotExp) { //No encuentra reserva no formalizada (valid) => busca reserva formalizada y no expirada
                         Reservation.findOne({
-                           valid : true, expired : false
-                        }, 
-                        function searchResValid(err, foundRes){
-                           if (err) return res.negotiate(err);
-                           if (!foundRes){ // No encuentra reserva valida => crea nueva reserva con huesped encontrado
-                              Reservation.create({
-                                 'guest': foundHue.id
-                                 }, 
-                                 function(err, reserva){
-                                    if (err) return res.negotiate(err);
-                                    res.status(201);
-                                    reserva.guest = foundHue;
-                                    return res.json(reserva);
-                                 }
-                              );
+                              valid: true,
+                              expired: false
+                           },
+                           function(err, valnotExp) {
+                              if (err) return res.negotiate(err);
+                              if (!valnotExp) { // No encuentra reserva valida => crea nueva reserva con huesped encontrado
+                                 Reservation.create({
+                                       'guest': foundGuest.id
+                                    },
+                                    function(err, reserva) {
+                                       if (err) return res.negotiate(err);
+                                       res.status(201);
+                                       reserva.guest = foundGuest;
+                                       return res.json(reserva);
+                                    }
+                                 );
+                              }
+                              else { // Encuentra reserva valida y no expirada => devuelve reserva + huesped
+                                 res.status(200);
+                                 valnotExp.guest = foundGuest;
+                                 return res.json(valnotExp);
+                              }
                            }
-                           else { // Encuentra reserva valida y no expirada => devuelve reserva + huesped
-                              res.status(200);
-                              foundRes.guest = foundHue;
-                              return res.json(foundRes);
-                           }
-                        });
+                        );
                      }
-                     else{ // Encuentra reserva no formalizada y no expirada => devuelve reserva y huesped
+                     else { // Encuentra reserva invalida y no expirada => devuelve reserva y huesped
                         res.status(200);
-                        foundRes.guest = foundHue;
-                        return res.json(foundRes);
+                        notValnotExp.guest = foundGuest;
+                        return res.json(notValnotExp);
                      }
                   }
                )
@@ -93,18 +94,52 @@ module.exports = {
          }
       );
    },
-
-   getReservations: function(req, res) {
-      var id = req.params.id;
+   getReservationByEmail: function(req, res) {
+      var email = req.params.email;
       Reservation.findAll({
-            'owner': id
+            'email': email
          })
-         .populate('user')
-         .exec(function(err, reserva) {
+         .populate('guest')
+         .exec(function(err, reservation) {
             if (err) {
                return res.json(err);
             }
-            return res.json(reserva);
+            return res.json(reservation);
          });
+   },
+   getReservations: function(req, res) {
+      var email = req.params.email;
+      Reservation.findAll({
+            'email': email
+         })
+         .populate('guest')
+         .exec(function(err, reservation) {
+            if (err) {
+               return res.json(err);
+            }
+            return res.json(reservation);
+         });
+   },
+   save: function(req, res, next) {
+      var criteria={};
+      criteria = req.body.info;
+      
+      var id = req.params.id;
+      if (!id)
+         return res.badRequest('No Id');
+         
+      var guestId = criteria.guest.id;
+      Guest.update(guestId, criteria.guest, function(err, guest){
+         if (guest.length == 0) return res.notFound();
+         if (err) return next(err);
+         //res.json(guest);
+      })
+      
+      Reservation.update(id, criteria, function(err, reserv){
+         if (reserv.length == 0) return res.notFound();
+         if (err) return next(err);
+         res.json(reserv);
+      })
+      
    },
 };

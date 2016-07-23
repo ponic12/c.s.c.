@@ -70,7 +70,7 @@ module.exports.routes = {
   'GET /logout': 'UserController.logout',
   
   '/user/get':'UserController.get',
-  '/user/role/get/:name':'UserController.getRoles',
+  '/user/role/get/:email':'UserController.getRoles',
   '/role/get':'RoleController.get',
   '/role/user/get/:name':'RoleController.getUsers',
  
@@ -78,7 +78,9 @@ module.exports.routes = {
   'GET /blog': 'BlogController.getBlogs',
   'POST /blog': 'BlogController.createBlog',
   
-  'GET /form/signin': 'ReservaController.signin',
+  'GET /reservation/signin/:email': 'ReservationController.signin',
+  'GET /reservation/:email': 'ReservationController.getReservationByEmail',
+  'PUT /reservation/save/:id?': 'ReservationController.save',
   
   /***************************************************************************
    *                                                                          *

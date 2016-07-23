@@ -7,9 +7,9 @@
    <form name="resForm">
       
       <md-card name="fechas" layout="column">
-         <div layout="row">
-            <md-datepicker ng-model="vm.fechaDesde" placeholder="Fecha de ingreso" class="datePick" md-min-date="vm.minDate" md-max-date="vm.maxDate"></md-datepicker>
-            <md-datepicker ng-model="vm.fechaHasta" placeholder="Fecha de salida" class="datePick" md-min-date="vm.minDate" md-max-date="vm.maxDate"></md-datepicker>
+         <div layout="row" style="margin:auto">
+            <md-datepicker ng-model="vm.resData.fechaDesde" placeholder="Fecha de ingreso" class="datePick" md-min-date="vm.minDate" md-max-date="vm.maxDate" style="margin:0px 10px"></md-datepicker>
+            <md-datepicker ng-model="vm.resData.fechaHasta" placeholder="Fecha de salida" class="datePick" md-min-date="vm.minDate" md-max-date="vm.maxDate" style="margin:0px 10px"></md-datepicker>
          </div>
          <div layout-padding="20" layout-align="center" class="textnote">
             La salida es hasta las 10AM y la entrada desde las 11AM
@@ -27,7 +27,7 @@
             <ng-md-icon icon="email" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
                <label>Ingrese correo electronico</label>
-               <input type="email" ng-model="vm.resData.email" name="email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" required>
+               <input type="email" ng-model="vm.resData.guest.email" name="email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" required>
                <div ng-messages="resForm.email.$error" role="alert">
                   <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
                      El campo es obligatorio
@@ -40,7 +40,7 @@
             <ng-md-icon icon="person" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
                <label>Nombre</label>
-               <input type="text" ng-model="vm.resData.firstName" name="firstName" required>
+               <input type="text" ng-model="vm.resData.guest.firstName" name="firstName" required>
                <div ng-messages="resForm.firstName.$error">
                   <div ng-message="required">Este dato es obligatorio</div>
                </div>
@@ -51,7 +51,7 @@
             <ng-md-icon icon="person" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
                <label>Apellido</label>
-               <input type="text" ng-model="vm.resData.lastName" name="lastName" required>
+               <input type="text" ng-model="vm.resData.guest.lastName" name="lastName" required>
                <div ng-messages="resForm.lastName.$error">
                   <div ng-message="required">Este dato es obligatorio</div>
                </div>
@@ -62,7 +62,7 @@
             <ng-md-icon icon="contact_mail" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
                <label>DNI</label>
-               <input type="number" ng-model="vm.resData.document" name="document" required>
+               <input type="number" ng-model="vm.resData.guest.document" name="document" required>
                <div ng-messages="resForm.document.$error">
                   <div ng-message="required">Este dato es obligatorio</div>
                </div>
@@ -73,7 +73,7 @@
             <ng-md-icon icon="business" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
                <label>Direccion</label>
-               <input type="text" ng-model="vm.resData.address" name="address" required>
+               <input type="text" ng-model="vm.resData.guest.address" name="address" required>
                <div ng-messages="resForm.address.$error">
                   <div ng-message="required">Este dato es obligatorio</div>
                </div>
@@ -84,7 +84,7 @@
             <ng-md-icon icon="location_on" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
                <label>Localidad</label>
-               <input type="text" ng-model="vm.resData.local" name="local">
+               <input type="text" ng-model="vm.resData.guest.local" name="local">
             </md-input-container>
          </div>
          
@@ -92,7 +92,7 @@
             <ng-md-icon icon="phone" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
                <label>Telefono</label>
-               <input type="number" ng-model="vm.resData.telephone" name="telephone">
+               <input ng-model="vm.resData.guest.telephone" name="telephone">
             </md-input-container>
          </div>
          
@@ -100,7 +100,7 @@
             <ng-md-icon icon="phonelink_ring" flex="10" style="fill: gray; margin-top: 25px; margin-left:10px"></ng-md-icon>
             <md-input-container flex class="md-block">
                <label>Celular</label>
-               <input type="number" ng-model="vm.resData.mobile" name="mobile" required>
+               <input ng-model="vm.resData.guest.mobile" name="mobile" required>
                <div ng-messages="resForm.mobile.$error">
                   <div ng-message="required">Este dato es obligatorio</div>
                </div>
@@ -132,20 +132,21 @@
             </md-input-container>
          </div>
          
-         <div layout="row">
+         <div layout="row" flex>
             <ng-md-icon icon="pets" flex="10" style="fill: gray; margin-top: 0px; margin-left:10px"></ng-md-icon>
             <md-checkbox name="pet-ok" ng-model="vm.resData.pet" aria-label="CheckboxPet" class="md-warn md-align-top-left" flex>
                Posee mascota?
             </md-checkbox>
+            <md-input-container class="md-block" ng-show="vm.resData.pet" layout-xs="column" style="top: -20px;right: 10px;">
+               <label>Tamaño</label>
+               <md-select name="size" ng-model="vm.resData.petSize">
+                  <md-option value="1">Grande</md-option>
+                  <md-option value="2">Mediana</md-option>
+                  <md-option value="3">Pequeña</md-option>
+               </md-select>
+            </md-input-container>
          </div>
-         <md-input-container flex="10" class="md-block" ng-show="vm.resData.pet==true">
-            <label>Tamaño</label>
-            <md-select name="size" ng-model="vm.resData.petSize">
-               <md-option value="1">Grande</md-option>
-               <md-option value="2">Mediana</md-option>
-               <md-option value="3">Pequeña</md-option>
-            </md-select>
-         </md-input-container>
+
 
          <md-whiteframe layout="column" class="md-whiteframe-2dp textnote" ng-style="background-color: #eee;">
             <h4>Notas:</h4>
@@ -165,7 +166,9 @@
 
    </form>
 
-
+   <md-button class="md-success md-raised"  ng-click="vm.debug()">
+      <span>Debug</span>
+   </md-button>
    <div style="text-align:center;">
       <h4>Complejo San Clemente</h4>
       <span> Tel: 02477-15331941</span>

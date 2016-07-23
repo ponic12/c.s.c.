@@ -4,7 +4,7 @@
    'use strict';
 
    angular
-      .module('form.app', ['ngMaterial', 'ngMdIcons', 'ngMessages'])
+      .module('form.app', ['ngMaterial', 'ngMdIcons', 'ngMessages','toastr'])
       .config(function($mdThemingProvider) {
          $mdThemingProvider.theme('default')
             .primaryPalette('blue')

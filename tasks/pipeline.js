@@ -11,7 +11,7 @@
  *   https://github.com/balderdashy/sails-docs/blob/master/anatomy/myApp/tasks/pipeline.js.md
  */
 
-var target = 'admin'; //'form'
+var target = 'form'; //'admin'
 
 // CSS files to inject in order
 //

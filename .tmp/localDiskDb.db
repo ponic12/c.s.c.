@@ -2,10 +2,10 @@
   "data": {
     "blog": [
       {
-        "name": "ssss",
+        "name": "jardincito",
         "color": "ff00ff",
         "createdAt": "2016-06-05T23:17:04.316Z",
-        "updatedAt": "2016-07-19T23:23:15.386Z",
+        "updatedAt": "2016-07-23T11:02:42.159Z",
         "id": 6,
         "usuario": "PP"
       },
@@ -67,7 +67,39 @@
       }
     ],
     "company": [],
-    "guest": [],
+    "guest": [
+      {
+        "email": "ponic12@gmail.com",
+        "createdAt": "2016-07-23T10:51:43.541Z",
+        "updatedAt": "2016-07-23T15:31:57.966Z",
+        "id": 1,
+        "firstName": "Pepe",
+        "lastName": "Argento",
+        "document": 20005205,
+        "address": "Av.del Libertador 7520 P16",
+        "local": "Capital Federal",
+        "telephone": 1147013283,
+        "mobile": "1555666443"
+      },
+      {
+        "email": "meisad12@gmail.com",
+        "createdAt": "2016-07-23T14:52:05.077Z",
+        "updatedAt": "2016-07-23T14:52:05.077Z",
+        "id": 2
+      },
+      {
+        "email": "pazmassad@gmail.com",
+        "createdAt": "2016-07-23T14:58:45.463Z",
+        "updatedAt": "2016-07-23T14:58:45.463Z",
+        "id": 3
+      },
+      {
+        "email": "mthorne@gmail.com",
+        "createdAt": "2016-07-23T15:09:05.756Z",
+        "updatedAt": "2016-07-23T15:09:05.756Z",
+        "id": 4
+      }
+    ],
     "hostage": [
       {
         "email": "marcelo@hotmail.com",
@@ -128,15 +160,42 @@
     ],
     "reservation": [
       {
-        "guest": 3,
-        "guestNum": 1,
+        "guest": 1,
+        "children": 0,
+        "adults": 2,
+        "valid": false,
+        "expired": false,
+        "vehicle": true,
+        "pet": false,
+        "createdAt": "2016-07-23T10:51:57.744Z",
+        "updatedAt": "2016-07-23T15:31:57.982Z",
+        "id": 3,
+        "fechaDesde": "2016-08-05T03:00:00.000Z",
+        "fechaHasta": "2016-08-07T03:00:00.000Z"
+      },
+      {
+        "guest": 2,
+        "children": 0,
+        "adults": 1,
         "valid": false,
         "expired": false,
         "vehicle": false,
         "pet": false,
-        "createdAt": "2016-06-26T17:36:46.938Z",
-        "updatedAt": "2016-06-26T17:36:46.938Z",
-        "id": 1
+        "createdAt": "2016-07-23T14:52:11.868Z",
+        "updatedAt": "2016-07-23T14:52:11.868Z",
+        "id": 4
+      },
+      {
+        "guest": 3,
+        "children": 0,
+        "adults": 1,
+        "valid": false,
+        "expired": false,
+        "vehicle": false,
+        "pet": false,
+        "createdAt": "2016-07-23T14:58:45.470Z",
+        "updatedAt": "2016-07-23T14:58:45.470Z",
+        "id": 5
       },
       {
         "guest": 4,
@@ -146,9 +205,9 @@
         "expired": false,
         "vehicle": false,
         "pet": false,
-        "createdAt": "2016-06-26T19:10:06.332Z",
-        "updatedAt": "2016-06-26T19:10:06.332Z",
-        "id": 2
+        "createdAt": "2016-07-23T15:09:05.761Z",
+        "updatedAt": "2016-07-23T15:09:05.761Z",
+        "id": 6
       }
     ],
     "role": [],
@@ -283,11 +342,11 @@
         "foreignKey": true,
         "alias": "user"
       },
-      "owner": {
+      "blog": {
         "type": "integer",
         "model": "blog",
         "foreignKey": true,
-        "alias": "owner"
+        "alias": "blog"
       },
       "id": {
         "type": "integer",
@@ -467,7 +526,9 @@
       "id": 17
     },
     "company": {},
-    "guest": {},
+    "guest": {
+      "id": 4
+    },
     "hostage": {
       "id": 4
     },
@@ -475,7 +536,7 @@
       "id": 35
     },
     "reservation": {
-      "id": 2
+      "id": 6
     },
     "role": {},
     "userrole": {}

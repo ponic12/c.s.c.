@@ -19,7 +19,7 @@ module.exports = {
     },
     posts: {
       collection: 'post',
-      via: 'owner'
+      via: 'blog'
     }
   }
 };

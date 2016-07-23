@@ -13,14 +13,7 @@
   function Controller($http, $rootScope, $state, toastr, $mdDialog) {
     $rootScope.modulo = "Bitacoras";
     var vm = this;
-    vm.colorCfg = {
-        label: "Seleccione color",
-        icon: "brush",
-        default: "#f00",
-        genericPalette: false,
-        history: false
-      },
-      vm.disableAdd = false;
+    vm.disableAdd = false;
     vm.selBitacora;
     vm.dataBitacoras = [];
     vm.formatFecha = formatFecha;
@@ -31,6 +24,7 @@
     vm.destroy = destroy;
     vm.save = save;
     vm.close = close;
+    
     loadBitacoras();
     ////////////////////////////////////////
     function create() {

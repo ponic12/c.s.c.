@@ -21,8 +21,8 @@ module.exports = {
          });
    },
    getRoles: function(req, res) {
-      var username = req.params.name;
-      User.findOne(username)
+      var p1 = req.params.email;
+      User.findOne({email:p1})
          .populate('roles')
          .exec(function(err, user) {
             if (err) {
